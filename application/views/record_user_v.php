@@ -80,7 +80,6 @@
                         <table id="add-row" class="table table-striped table-borderless table-hover " >
                             <thead>
                                 <tr class="text-center">
-                                    <th>Medical Record ID</th>
                                     <th>Date</th>
                                     <th>Patient</th>
                                     <th>Doctor</th>
@@ -93,8 +92,7 @@
                             <tbody>
                                 <?php foreach ($data as $d) { ?>
                                 <tr>
-                                    <td><?= $d->no_rekam_medik ?></td>
-                                    <td><?= date_format(date_create($d->tanggal_pemeriksaan), 'd/m/Y'); ?></td>
+                                    <td><?= date_format(date_create($d->tanggal_pemeriksaan), 'd/m/Y  h:i:s'); ?></td>
                                     <td><?= $d->pasien->nama ?></td>
                                     <td><?= $d->dokter->nama_dokter ?></td>
                                     <td><?= $d->keluhan ?></td>
@@ -132,6 +130,9 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#add-row').DataTable();
+        var table = $('#add-row').DataTable();
+        table
+            .order( [ 0, 'desc' ])
+            .draw();
     } );
 </script>

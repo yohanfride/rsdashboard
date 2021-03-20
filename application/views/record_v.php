@@ -89,7 +89,7 @@
                                 <?php foreach ($data as $d) { ?>
                                 <tr>
                                     <td><?= $d->no_rekam_medik ?></td>
-                                    <td><?= date_format(date_create($d->tanggal_pemeriksaan), 'd/m/Y'); ?></td>
+                                    <td><?= date_format(date_create($d->tanggal_pemeriksaan), 'd/m/Y h:i:s'); ?></td>
                                     <td><?= $d->pasien->nama ?></td>
                                     <td><?= $d->dokter->nama_dokter ?></td>
                                     <td><?= $d->keluhan ?></td>
@@ -124,9 +124,11 @@
 
 <?php include("footer.php") ?>
 <script src="<?= base_url()?>assets/node_modules/bootstrap-daterangepicker/daterangepicker.js"></script>
-
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#add-row').DataTable();
+        var table = $('#add-row').DataTable();
+        table
+            .order( [ 1, 'desc' ])
+            .draw();
     } );
 </script>

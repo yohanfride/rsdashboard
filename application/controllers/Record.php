@@ -88,7 +88,7 @@ class record extends CI_Controller {
 		$lastparams = (object)$this->session->userdata('lastparams');
 		if($lastparams->menu == $data['menu']){
 			$data['params'] = $lastparams->params;
-			if(!$lastparams->pasien){
+			if(empty($lastparams->pasien)){
 				$data['params']	= '?'.$data['params'];
 			} else {
 				$data['menu_pasien'] = true;
