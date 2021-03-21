@@ -56,6 +56,14 @@
                                 <label for="name">Specialist</label>
                                 <input type="text" class="form-control" id="specialist" name="specialist" placeholder="Enter Doctor Specialist" value="<?= $data->spesialis?>" required="required" >
                             </div> 
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required="required" value="<?= $data->user->username?>" >
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Doctor Registration ID (NIPD)</label>
+                                <input type="text" class="form-control" id="nip" name="nip" placeholder="Enter ID(NIP)" required="required" value="<?= $data->user->nip?>" >
+                            </div> 
                         </div>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success" name="save" value="save"> <i class="fa fa-check"></i> Save</button>

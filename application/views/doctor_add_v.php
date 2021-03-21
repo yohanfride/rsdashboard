@@ -55,7 +55,19 @@
                             <div class="form-group" >
                                 <label for="name">Specialist</label>
                                 <input type="text" class="form-control" id="specialist" name="specialist" placeholder="Enter Doctor Specialist" required="required" >
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required="required" >
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password " required="required"  pattern="(?=.*\d)(?=.*[a-z]).{6,}" title="Harus berisi setidaknya satu angka dan satu huruf besar dan kecil, dan setidaknya 6 karakter atau lebih">
                             </div> 
+                            <div class="form-group">
+                                <label for="nip">Doctor Registration ID (NIPD)</label>
+                                <input type="text" class="form-control" id="nip" name="nip" placeholder="Enter ID(NIP)" required="required" >
+                            </div>  
                         </div>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success" name="save" value="save"> <i class="fa fa-check"></i> Save</button>

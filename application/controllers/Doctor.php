@@ -36,9 +36,15 @@ class doctor extends CI_Controller {
         		"nama_dokter" => $this->input->post('name'),
         		"alamat" => $this->input->post('address'),
         		"no_telp" => $this->input->post('phone'),
-				"spesialis" => $this->input->post('specialist')
+				"spesialis" => $this->input->post('specialist'),
+        		"username" => $this->input->post('username'),
+        		"nipd" => $this->input->post('nip'),
+        		"password" => $this->input->post('password')
         	);
         	$respo = $this->doctor_m->add($input,$data['user_now']->token);
+           	print_r($input);
+           	print_r($respo);
+           	exit();
             if($respo->code == "D00"){             
                 $data['success']=$respo->message;                  
             } else {                
@@ -60,7 +66,9 @@ class doctor extends CI_Controller {
         		"nama_dokter" => $this->input->post('name'),
         		"alamat" => $this->input->post('address'),
         		"no_telp" => $this->input->post('phone'),
-				"spesialis" => $this->input->post('specialist')
+				"spesialis" => $this->input->post('specialist'),
+        		"username" => $this->input->post('username'),
+        		"nip" => $this->input->post('nipd')
         	);
         	$respo = $this->doctor_m->edit($id,$input,$data['user_now']->token);
             if($respo->code == "D00"){             
