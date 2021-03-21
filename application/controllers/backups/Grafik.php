@@ -45,7 +45,7 @@ class grafik extends CI_Controller {
 		$data['list'] = array();
 		$data['item'] = array();
 		$max = 20;
-		$item = 
+		$item = 0;
 		$maxitem = ceil( count($data['data']) / ceil(count($data['data']) / 20) );
 		$i=0;$n=0;$max=0;
 		foreach ($data['data'] as $d) {

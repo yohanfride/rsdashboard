@@ -102,6 +102,51 @@ class record extends CI_Controller {
 		$this->load->view('record_detail_v', $data);
 	}
 
+	public function chart(){        
+		$data=array();
+		$data['menu']='report';
+		$data['user_now'] =  $this->session->userdata('rs_session');
+		$data['title'] = 'Medical Record Report';
+		$data['success']='';
+		$data['error']='';
+		$data['str_date'] = date("Y-m-d");
+		$data['end_date'] = date("Y-m-d");
+		if($this->input->get('str')){
+			$data['str_date'] = $this->input->get('str');
+		}
+		if($this->input->get('end')){
+			$data['end_date'] = $this->input->get('end');
+		}
+		if($this->input->get('alert')=='success') $data['success']='Medical Record data deleted successfully';	
+		if($this->input->get('alert')=='failed') $data['error']="Medical Record data deleted failed";	
+		$find = array(
+			"str_pemeriksaan"=>$data['str_date'],
+			"end_pemeriksaan"=>$data['end_date'],
+			"groupby" => "date"
+		);
+		$data['data'] = $this->record_m->group($find,$data['user_now']->token)->data;
+		////
+		$params = $_GET;
+		unset($params['alert']);
+		$data['params'] = http_build_query($params);
+		$last_params = array(
+			'params' => $data['params'],
+			'menu' => $data['menu']
+		);
+		$this->session->set_userdata('lastparams',$last_params);
+		/////
+		$data['list'] = array();
+		$data['item'] = array();
+		$max = 8;
+		foreach ($data['data'] as $d) {
+			$data['list'][] = $d->date;	 
+			$data['item'][] = $d->total_item;
+			if($max<$d->total_item) $max = $d->total_item;	 
+		} 
+		$data['max']=$max;
+		$this->load->view('record_chart_v', $data);
+	}
+
 
 	//////////////////////
 	public function add(){       

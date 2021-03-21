@@ -45,6 +45,11 @@ class Record_m extends My_Model{
 		return json_decode($this->sendPostJson($url,$data,$token));
 	}
 
+	function group($data,$token){
+		$url = $this->config->item('url_node')."rekammedik/group/";				
+		return json_decode($this->sendPostJson($url,$data,$token));
+	}
+
 
 }
 

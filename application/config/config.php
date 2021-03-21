@@ -22,6 +22,7 @@ if($serverPort != '443' && $serverPort != '80'){
 	$config['base_url'] .= ":$serverPort/";
 }
 
+
 $config['css_path'] = $config['base_url'].'global/css/';
 $config['js_path']  = $config['base_url'].'global/js/';
 $config['img_path'] = $config['base_url'].'global/images/';

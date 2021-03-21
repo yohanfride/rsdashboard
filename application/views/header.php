@@ -86,6 +86,9 @@
               <li <?php if($menu == 'record'){ echo 'class="active"'; } ?>>
                 <a href="<?= base_url()?>record"  class="nav-link"><i class="fas fa-notes-medical"></i><span>Medical Record</span></a>
               </li>
+               <li <?php if($menu == 'report'){ echo 'class="active"'; } ?>>
+                <a href="<?= base_url()?>record/chart"  class="nav-link"><i class="fas fa-chart-bar"></i><span>Report</span></a>
+              </li>
               <li  <?php if($menu == 'user'){ echo 'class="active"'; } ?>>
                 <a href="<?= base_url()?>user"  class="nav-link"><i class="fas fa-user"></i><span>User Management</span></a>
               </li>
